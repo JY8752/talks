@@ -1,1 +1,3 @@
-# my-slides
+# talks
+
+スライド資料置き場。

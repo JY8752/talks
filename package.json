@@ -1,0 +1,19 @@
+{
+  "name": "talks",
+  "type":"module",
+  "private": true,
+  "scripts": {
+    "build": "pnpm run -r build"
+  },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
+  "devDependencies": {
+    "@slidev/cli": "^0.49.10",
+    "@slidev/client": "^0.49.10",
+    "@slidev/theme-default": "^0.25.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "vue": "^3.4.30"
+  },
+  "resolutions": {
+    "twoslash-vue": "0.2.7"
+  }
+}
