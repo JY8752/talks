@@ -1,663 +1,489 @@
 ---
-# You can also start simply with 'default'
-theme: default
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply unocss classes to the current slide
+title: Goを嫌いにならないためのメンタルモデル
 class: text-center
-# https://sli.dev/custom/highlighters.html
-highlighter: shiki
-# https://sli.dev/guide/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations#slide-transitions
-transition: slide-left
-# enable MDC Syntax: https://sli.dev/guide/syntax#mdc-syntax
+transition: fade-out
 mdc: true
 ---
 
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-
-## transition: fade-out
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-  <br>
-  <br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
+# Goを嫌いにならないためのメンタルモデル
 
 <style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
+  h1 {
+    font-size: 4em !important;
+  }
 </style>
 
-<!--
-Here is another comment.
--->
-
----
-
-transition: slide-up
-level: 2
-
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-## Keyboard Shortcuts
-
-|                                                    |                             |
-| -------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                | next animation or slide     |
-| <kbd>left</kbd> / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                      | previous slide              |
-| <kbd>down</kbd>                                    | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-
-layout: two-cols
-layoutClass: gap-16
-
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc v-click minDepth="1" maxDepth="2"></Toc>
-
----
-
-layout: image-right
-image: https://cover.sli.dev
-
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover![^1]
-
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-
-import { computed, ref } from "vue";
-
-const count = ref(0);
-const doubled = computed(() => count.value * 2);
-
-doubled.value = 2;
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-
-## level: 2
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: "John Doe",
-  books: [
-    "Vue 2 - Advanced Guide",
-    "Vue 3 - Basic Guide",
-    "Vue 4 - The Mystery",
-  ],
-});
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: "John Doe",
-        books: [
-          "Vue 2 - Advanced Guide",
-          "Vue 3 - Basic Guide",
-          "Vue 4 - The Mystery",
-        ],
-      },
-    };
-  },
-};
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: "John Doe",
-      books: [
-        "Vue 2 - Advanced Guide",
-        "Vue 3 - Basic Guide",
-        "Vue 4 - The Mystery",
-      ],
-    },
-  }),
-};
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: "John Doe",
-  books: [
-    "Vue 2 - Advanced Guide",
-    "Vue 3 - Basic Guide",
-    "Vue 4 - The Mystery",
-  ],
-};
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
+<div class="pt-10 opacity-50">
+  2024/06/28 Yamanaka Junichi
 </div>
 
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
 ---
 
-## class: px-20
+## 自己紹介
 
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
+<div class="grid grid-cols-2 h-screen mt-5">
+  <div class="pr-5">
+    <h3 class="pt-5">Yamanaka Junichi</h3>
+    <h3 class="py-5">経歴</h3>
+    <ul>
+      <li> 2013年 ~ 2020年　Jcomで営業</li>
+      <li> 2020年 ~ 2022年 Javaで受託開発</li>
+      <li> 2022年 ~ 2024年 Coconeでブロックチェーンゲームの開発をKotlinやGoで</li>
+      <li> 2024年 ~ フリーランス</li>
+    </ul>
+    <h3 class="py-5">好きな技術</h3>
+    Go, Protobuf, Unit Test
+  </div>
+  <div class="pl-5">
+    <img 
+      src="https://github.com/JY8752.png"
+      alt="アイコン"
+      class="rounded-full w-80 h-80 mt-15"
+    />
+  </div>
 </div>
 
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
 ---
 
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
+## 今日話したいこと
 
 <v-click>
 
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
+- 🚀 Goを好きになるには**今までの言語からのパラダイムシフト**が必要(かもしれない)
 
 </v-click>
 
-<div mt-20 v-click>
+<v-click>
 
-[Learn More](https://sli.dev/guide/animations#click-animations)
+- 🥑 Goの**言語仕様が少ないことには理由が必ずある**
 
-</div>
+</v-click>
 
----
+<v-click>
 
-# Motions
+- 🐢 Goは**独自の文化やルールを強制しているわけではない**
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
+</v-click>
 
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
+<v-click>
+<span text-4xl text-blue-300 py-10>
+Goが合わないとならない!!とならないようにこれらのことを知っておきましょう😇
+</span>
+</v-click>
 
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
+<style>
+  ul {
+    list-style-type: none !important;
+    padding-left: 0;
   }
+  li {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+</style>
+
+<!--
+- Goはオブジェクト指向言語や関数型言語なんかとは違った世界線の言語
+- そのため、こういったことを知らないとGoが合わないと思ってしまう人がけっこう多い気がする
+- 今回はそういった悲しい誤解が少しでも減ればいいなと思います
+-->
+
+---
+
+## Java脳でGoを書くとどうなるか
+
+<br />
+
+### オブジェクトのカプセル化ができなくて悩む
+
+<div grid grid-cols-2>
+<Transform :scale="0.9">
+Java
+
+```java {all|3,4}
+public class User {
+
+    private String name;
+    private int age;
+
+    // コンストラクタ
+    public User(String name, int age) {
+        this.name  = name;
+        this.age = age;
+    }
+
+    // getter
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
 }
-</script>
+```
 
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
+</Transform>
 
-[Learn More](https://sli.dev/guide/animations.html#motion)
+<Transform :scale="0.9">
+Go
+
+```go {2|all|3-6|20-}
+package user
+
+type User struct {
+	name string
+	age  int
+}
+
+func NewUser(name string, age int) User {
+	return User{name: name, age: age}
+}
+
+func (u User) Name() string {
+	return u.name
+}
+
+func (u User) Age() int {
+	return u.age
+}
+
+// 同じパッケージからだと
+// プライベートなフィールドにもアクセスできてしまう
+func UpdateName(name string, user *User) {
+	user.name = name
+}
+
+```
+
+</Transform>
+</div>
+
+---
+
+### nullチェックがしたくなる
+
+<div grid grid-cols-2>
+
+<Transform :scale="0.9">
+
+Java
+
+```java {all|8-13|16-}
+public class Item {
+    private final String id;
+
+    private Item(String id) {
+        this.id = id;
+    }
+
+    public static Item createItem(String id) {
+        if (id.startsWith("d-")) {
+            return null;
+        }
+        return new Item(id);
+    }
+}
+
+// Main.java
+var item = Item.createItem("d-1111");
+if(item == null) {
+    // 何か処理
+}
+```
+
+</Transform>
+
+<Transform :scale="0.9">
+
+Go
+
+```go {7|all|2-4|8-}
+func NewItem(id string) (Item, error) {
+	if strings.HasPrefix(id, "d-") {
+		return Item{}, fmt.Errorf("specific item not starting `d-` prefix ")
+	}
+	return Item{Id: id}, nil
+}
+
+func main() {
+	item, err := NewItem("d-111")
+	if err != nil {
+		panic(err)
+	}
+}
+```
+
+</Transform>
 
 </div>
 
 ---
 
-# LaTeX
+### ここまでのまとめ
 
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
+<br />
 
-<br>
+<div v-click px-5 text-3xl>
 
-Inline $\sqrt{3x-1}+(1+x)^2$
+Goは**オブジェクト指向言語として開発された言語ではない**
 
-Block
-
-$$
-{1|3|all}
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
+<div v-after p-5 text-2xl text-indigo-200>
+  👉<span pl-5>Goはもともと<span font-bold>システムプログラミングを行うために開発された言語</span></span>
+</div>
 
 </div>
 
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+<div v-click text-3xl px-5 pt-10>
+
+Goでは**変数に値があるかは気にしなくてもいい**
+
+<div v-after p-5 text-2xl text-indigo-200><span pr-5>👉</span>ポインタ以外はデフォルト値が使われるためpanicしない</div>
+<div v-after p-5 text-2xl text-indigo-200><span pr-5>👉</span>ポインタ型はnilになり得るがerrorを返すことでnil参照が起こらない</div>
+<div v-after p-5 text-2xl text-indigo-200><span pr-5>👉</span>Goではnillチェックの代わりにerrorチェックをする</div>
+
+</div>
 
 ---
 
-foo: bar
-dragPos:
-square: 691,32,167,\_,-16
+## Goにないもの
 
----
+<br />
 
-# Draggable Elements
+### 配列・List操作
 
-Double-click on the draggable elements to edit their positions.
+<br />
 
-<br>
+<div grid grid-cols-2>
 
-###### Directive Usage
+<Transform :scale="0.9">
+Kotlin
 
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
+```kotlin {all|10-14}
+data class Student(val math: Int, val english: Int)
 
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <carbon:arrow-up />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-
-src: ./pages/multiple-entries.md
-hide: false
-
----
-
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from "vue";
-import { emptyArray } from "./external";
-
-const arr = ref(emptyArray(10));
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from "vue";
-import { emptyArray, sayHello } from "./external";
-
-sayHello();
-console.log(`vue ${version}`);
-console.log(
-  emptyArray<number>(10).reduce(
-    (fib) => [...fib, fib.at(-1)! + fib.at(-2)!],
-    [1, 1]
+fun main(args: Array<String>) {
+  val students = listOf(
+  Student(math = 70, english = 81),
+  Student(math = 70, english = 81),
+  Student(math = 70, english = 81),
   )
-);
+
+    students.filter { it.math > 70 }
+        .filter { it.english > 80 }
+        .map { it.math + it.english }
+        .forEach { println("total: $it") }
+
+}
+
+```
+
+</Transform>
+
+<Transform :scale="0.9">
+Go
+
+```go {5|all|13-}
+type Student struct {
+	math    int
+	english int
+}
+
+func main() {
+	students := []Student{
+		{math: 71, english: 81},
+		{math: 71, english: 81},
+		{math: 71, english: 81},
+	}
+
+	for _, s := range students {
+		if s.math <= 70 || s.english <= 80 {
+			continue
+		}
+		sum := s.math + s.english
+		fmt.Printf("total: %d\n", sum)
+	}
+}
+```
+
+</Transform>
+
+</div>
+
+---
+
+### enum
+
+<br />
+
+<div grid grid-cols-2>
+<Transform :scale="0.9">
+Kotlin
+
+```kotlin {all|-5|7-|all}
+enum class Status{
+    Success,
+    Failed
+    ;
+}
+
+fun main() {
+    // code 0 name Success
+    // code 1 name Failed
+    for (status in Status.entries) {
+        println("code ${status.ordinal} name ${status.name}")
+    }
+}
+```
+
+</Transform>
+<Transform :scale="0.9">
+Go
+
+```go {7|all|-5|6-}
+type status int
+const (
+	_ status = iota
+	success
+	failed
+)
+
+func main() {
+	// 1 2
+	fmt.Printf("%v %v", success, failed)
+}
+```
+
+</Transform>
+</div>
+
+<div v-click text-3xl mt-5 text-blue-300>
+他の言語にあるようなenumの機能が欲しければstringerやenumerというモジュールもある
+</div>
+
+---
+
+### ここまでのまとめ
+
+<br />
+
+<div v-click px-3 text-3xl>
+
+Goにはなぜmapやfilterがないのか
+
+<div v-after p-3 text-2xl text-indigo-300><span pr-5>👉</span>遅くなるから</div>
+<div v-after p-3 text-2xl text-indigo-300><span pr-5>👉</span>Goは他の言語にあるからといってパフォーマンスを落とすような機能を取り入れない</div>
+
+</div>
+
+<div v-click px-3 text-3xl mt-8>
+
+Goにはなぜenumがないのか
+
+<div v-after p-3 text-2xl text-indigo-300><span pr-5>👉</span>Goにある既存の機能で十分enumとしての機能を提供することができる</div>
+<div v-after p-3 text-2xl text-indigo-300><span pr-5>👉</span>enumがもたらす複雑さに比べて得られるものが少ない</div>
+
+</div>
+
+---
+layout: center
+---
+
+<span text-4xl>Goはベストよりもベターを採用する言語😇</span>
+
+---
+
+## Goの短い変数名について
+
+<br />
+
+<Transform :scale="0.8">
+Go
+
+```go {all|1|19-}
+func TestExample(t *testing.T) {
+	tests := map[string]struct {
+		x        int
+		y        int
+		expected int
+	}{
+		"1 + 1 = 2": {
+			x:        1,
+			y:        1,
+			expected: 2,
+		},
+		"0 + (-1) = -1": {
+			x:        0,
+			y:        -1,
+			expected: -1,
+		},
+	}
+
+	for name, tt := range tests {
+		name, tt := name, tt
+		t.Run(name, func(t *testing.T) {
+			if tt.x+tt.y != tt.expected {
+				t.Errorf("expected %d but %d", tt.expected, tt.x+tt.y)
+			}
+		})
+	}
+}
+```
+
+</Transform>
+
+---
+
+### パッケージ名を使った命名
+
+syncパッケージの例
+
+```go {all|1|12-14|1,12-14}
+var once sync.Once
+
+func Hello(ch chan struct{}) {
+	time.Sleep(time.Second)
+	ch<-struct{}{}
+	close(ch)
+}
+
+func main() {
+	ch := make(chan struct{})
+	defer func ()  {
+		once.Do(func() {
+			close(ch)
+		})
+	}()
+
+	go Hello(ch)
+
+	<-ch
+}
 ```
 
 ---
 
-layout: center
-class: text-center
+## まとめ
+
+<br />
+
+<div v-click text-3xl>Goはシステムプログラミングのために作られた言語</div>
+<div v-after text-2xl p-5 text-indigo-300><span pr-5>👉</span>Goが合わないと思ったのなら今までの言語のメンタルモデルを一度壊す必要があるかもしれない</div>
+
+<div v-click text-3xl mt-6>Goはベストよりもベターを選択する言語</div>
+<div v-after text-2xl p-5 text-indigo-300><span pr-5>👉</span>なぜ？と思うものにはだいたい理由があるので調べてみるといいです 🔍</div>
+
+<div v-click text-3xl mt-6>Goは命名についてどの言語よりも真剣に考えている</div>
+<div v-after text-2xl p-5 text-indigo-300><span pr-5>👉</span>Goの短い命名は独自の文化でもルールでもないです</div>
+
+---
+layout: end
+---
 
 ---
 
-# Learn More
+## 参考
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+<br />
+
+- [Goのなぜ問答](https://zenn.dev/nobonobo/articles/9a9f12b27bfde9)
