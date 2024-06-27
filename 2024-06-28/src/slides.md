@@ -159,6 +159,11 @@ func UpdateName(name string, user *User) {
 </Transform>
 </div>
 
+<!--
+- 一例としてオブジェクトのカプセル化についてお話しできればと思います
+- こちらはJavaとGoでUserというオブジェクトを表現したコード例です
+-->
+
 ---
 
 ### nullチェックがしたくなる
@@ -218,6 +223,11 @@ func main() {
 
 </div>
 
+<!--
+もう一つ、　Java的な例でnullチェックの話です。
+- 先ほどと同じようにJavaとGoの二つのコードを用意してます。
+-->
+
 ---
 
 ### ここまでのまとめ
@@ -226,10 +236,10 @@ func main() {
 
 <div v-click px-5 text-3xl>
 
-Goは**オブジェクト指向言語として開発された言語ではない**
+Goは**オブジェクト指向の言語ではない**
 
 <div v-after p-5 text-2xl text-indigo-200>
-  👉<span pl-5>Goはもともと<span font-bold>システムプログラミングを行うために開発された言語</span></span>
+  👉<span pl-5>Goはもともと<span font-bold>システムプログラミングを書く言語</span></span>
 </div>
 
 </div>
@@ -243,6 +253,11 @@ Goでは**変数に値があるかは気にしなくてもいい**
 <div v-after p-5 text-2xl text-indigo-200><span pr-5>👉</span>Goではnillチェックの代わりにerrorチェックをする</div>
 
 </div>
+
+<!--
+- Goはシステムプログラミングをするための言語でどちらかといえばCやC++に近い言語です。
+- Goでは適切にエラーハンドリングをすることで基本的には変数に値があるかどうかは気にしなくていいい、はずです
+-->
 
 ---
 
@@ -310,6 +325,10 @@ func main() {
 
 </div>
 
+<!--
+次に他の言語にあってGoにないモノの話でこれもめちゃくちゃあるんですが有名なので配列・Listの話をします。
+-->
+
 ---
 
 ### enum
@@ -361,6 +380,10 @@ func main() {
 他の言語にあるようなenumの機能が欲しければstringerやenumerというモジュールもある
 </div>
 
+<!--
+enumは飛ばします
+-->
+
 ---
 
 ### ここまでのまとめ
@@ -385,11 +408,20 @@ Goにはなぜenumがないのか
 
 </div>
 
+<!--
+-
+-->
+
 ---
 layout: center
 ---
 
 <span text-4xl>Goはベストよりもベターを採用する言語😇</span>
+
+<!--
+最後にGoの命名の話を少しできればと思います。
+ここにのせたのはGoの単体テストのコード例なのですが...
+-->
 
 ---
 
@@ -432,6 +464,10 @@ func TestExample(t *testing.T) {
 
 </Transform>
 
+<!--
+最後にGoの命名の話を少しできればと思います。 ここにのせたのはGoの単体テストのコード例なのですが...
+-->
+
 ---
 
 ### パッケージ名を使った命名
@@ -461,14 +497,19 @@ func main() {
 }
 ```
 
+<!--
+次にGoはパッケージ名込みで命名をする言語です。
+これに関してはsyncパッケージがとてもよくできてるのでその紹介なんですが...
+-->
+
 ---
 
 ## まとめ
 
 <br />
 
-<div v-click text-3xl>Goはシステムプログラミングのために作られた言語</div>
-<div v-after text-2xl p-5 text-indigo-300><span pr-5>👉</span>Goが合わないと思ったのなら今までの言語のメンタルモデルを一度壊す必要があるかもしれない</div>
+<div v-click text-3xl>Goはシステムプログラミングのための言語</div>
+<div v-after text-2xl p-5 text-indigo-300><span pr-5>👉</span>Goが合わないと思ったのなら今までの言語のメンタルモデルを一度壊しましょう😇</div>
 
 <div v-click text-3xl mt-6>Goはベストよりもベターを選択する言語</div>
 <div v-after text-2xl p-5 text-indigo-300><span pr-5>👉</span>なぜ？と思うものにはだいたい理由があるので調べてみるといいです 🔍</div>
