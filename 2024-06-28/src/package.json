@@ -5,5 +5,8 @@
     "dev": "slidev",
     "build": "slidev build --base /2024/not-hate-go/ --out ../../dist/2024/not-hate-go",
     "export": "slidev export --dark --output ../2024-06-28-not-hate-go.pdf"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.45.0"
   }
 }

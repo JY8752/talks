@@ -1,6 +1,6 @@
 {
   "name": "talks",
-  "type":"module",
+  "type": "module",
   "private": true,
   "scripts": {
     "build": "pnpm run -r build"
@@ -11,7 +11,8 @@
     "@slidev/client": "^0.49.10",
     "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "^0.25.0",
-    "vue": "^3.4.30"
+    "vue": "^3.4.30",
+    "wrangler": "^3.62.0"
   },
   "resolutions": {
     "twoslash-vue": "0.2.7"
