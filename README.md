@@ -2,6 +2,8 @@
 
 スライド資料置き場。
 
+公開スライドは[こちら](https://talks-3l6.pages.dev/)
+
 ## 2024-06-28 社内LT
 - [Goを嫌いにならないためのメンタルモデル](./2024-06-28/2024-06-28-not-hate-go.pdf)
 
@@ -40,5 +42,5 @@ pnpx wrangler login
 ```
 
 ```
-pnpx wranger deploy dest
+pnpx wrangler deploy dist
 ```
